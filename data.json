@@ -1,0 +1,72 @@
+{
+  "name": "article",
+  "label": "文章",
+  "description": "文章",
+  "fields": [
+    {
+      "name": "user_id",
+      "label": "用户",
+      "type": "integer",
+      "isRequired": true
+    },
+    {
+      "name": "title",
+      "label": "标题",
+      "type": "string",
+      "isRequired": true
+    },
+    {
+      "name": "content",
+      "label": "正文",
+      "type": "text",
+      "isRequired": true
+    },
+    {
+      "name": "create_time",
+      "label": "创建时间",
+      "type": "dateTime"
+    },
+    {
+      "name": "user",
+      "label": "用户",
+      "type": "manyToOne",
+      "isRequired": true,
+      "ref": {
+        "model": "user",
+        "toField": "id",
+        "originField": "user_id",
+        "relatedName": "articles"
+      }
+    },
+    {
+      "name": "article_detail",
+      "type": "oneToOne",
+      "label": "文章详情",
+      "ref": {
+        "model": "article_detail",
+        "originField": "id",
+        "toField": "article_id"
+      }
+    },
+    {
+      "name": "article_ref",
+      "type": "oneToMany",
+      "label": "映射",
+      "ref": {
+        "model": "category_article",
+        "toField": "article_id",
+        "originField": "id"
+      }
+    },
+    {
+      "name": "categories",
+      "type": "manyToMany",
+      "label": "分类列表",
+      "ref": {
+        "model": "category",
+        "originField": "article_ref",
+        "toField": "category_ref"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+pydantic==1.10.14
+langchain==0.1.15
+langchain-openai
+langchainhub
+langchain-text-splitters
+openai
+chroma
+termcolor
+jsonpatch
+jsonpath-ng
+tcvectordb
+--extra-index-url https://mirrors.tencent.com/repository/pypi/tencent_pypi/simple
